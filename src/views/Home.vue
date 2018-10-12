@@ -2,6 +2,8 @@
   <div class="home container mx-auto">
     <HelloWorld msg="Pokemon TGC"/>
 
+    <search-input></search-input>
+
     <fetch-json url="https://api.pokemontcg.io/v1/cards">
       <div slot-scope="{ response: cards, loading }">
         <p v-if="loading">Loading...</p>
@@ -16,7 +18,7 @@
                 @close="modalOpen = false"
                 :card= "pokemonData"
               >
-              </card-modal>
+            </card-modal>
           </div>
         </div>
       </div>
@@ -31,6 +33,7 @@ import HelloWorld from '@/components/HelloWorld.vue';
 import FetchJson from "@/components/FetchJson.vue";
 import PokemonCard from "@/components/PokemonCard.vue";
 import CardModal from "@/components/CardModal.vue";
+import SearchInput from "@/components/SearchInput.vue";
 
 export default {
   name: 'home',
@@ -38,7 +41,8 @@ export default {
     HelloWorld,
     FetchJson,
     PokemonCard,
-    CardModal
+    CardModal,
+    SearchInput
   },
   data(){
     return{
