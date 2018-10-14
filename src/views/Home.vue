@@ -1,14 +1,12 @@
 <template>
   <div class="home container mx-auto">
     <HelloWorld msg="Pokemon TGC"/>
-
-    <search-input></search-input>
-
-    <fetch-json url="https://api.pokemontcg.io/v1/cards">
+    <search-input @searching="url = $event"></search-input>
+    <fetch-json :url="url">
       <div slot-scope="{ response: cards, loading }">
         <p v-if="loading">Loading...</p>
         <div v-else>
-          <div class="flex flex-wrap justify-between">
+          <div class="flex flex-wrap">
             <pokemon-card v-for="pokemon in cards.cards" :key="pokemon.id" >
               <img slot="image" :src="pokemon.imageUrl" :alt="pokemon.name" class="w-full max-w-xxs" @click="thePokemon(pokemon)">
               <div slot="name" class="font-bold text-xl mb-2">{{ pokemon.name }}</div>
@@ -23,17 +21,16 @@
         </div>
       </div>
     </fetch-json>
-    
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue';
-import FetchJson from "@/components/FetchJson.vue";
-import PokemonCard from "@/components/PokemonCard.vue";
-import CardModal from "@/components/CardModal.vue";
-import SearchInput from "@/components/SearchInput.vue";
+import FetchJson from '@/components/FetchJson.vue';
+import PokemonCard from '@/components/PokemonCard.vue';
+import CardModal from '@/components/CardModal.vue';
+import SearchInput from '@/components/SearchInput.vue';
 
 export default {
   name: 'home',
@@ -42,20 +39,21 @@ export default {
     FetchJson,
     PokemonCard,
     CardModal,
-    SearchInput
+    SearchInput,
   },
-  data(){
-    return{
+  data() {
+    return {
+      url: 'https://api.pokemontcg.io/v1/cards',
       modalOpen: false,
       pokemonData: {},
-    }
+    };
   },
   methods: {
     thePokemon(pokemon) {
       this.modalOpen = true;
       this.pokemonData = pokemon;
-    }
-  }
+    },
+  },
 };
 </script>
 

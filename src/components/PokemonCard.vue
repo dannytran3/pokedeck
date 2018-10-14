@@ -1,5 +1,6 @@
+<!-- creates individual card for grid view -->
 <template>
-    <div class="max-w-xxs mb-6" >
+    <div class="max-w-xxs mb-6 mx-4" >
         <div class=" shadow-md rounded-lg text-none">
             <slot name="image"></slot>
         </div>
