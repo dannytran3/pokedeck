@@ -1,6 +1,6 @@
 <template>
   <div class="home container mx-auto">
-    <HelloWorld msg="Pokemon TGC"/>
+    <HelloWorld msg="Pokemon TCG"/>
     <search-input @searching="url = $event"></search-input>
     <fetch-json :url="url">
       <div slot-scope="{ response: cards, loading }">

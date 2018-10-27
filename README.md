@@ -1,4 +1,4 @@
-# pokedeck
+# Pokedeck
 
 ## Project setup
 ```
@@ -19,3 +19,6 @@ npm run build
 ```
 npm run lint
 ```
+
+### Uses:
+[Vue CLI 3](https://cli.vuejs.org/), [Tailwind](https://tailwindcss.com/), [Pokemon TCG API](https://pokemontcg.io)
